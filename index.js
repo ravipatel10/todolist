@@ -20,6 +20,8 @@ app.set("view engine", "ejs");
 
 //*********************** For Connect to the Server ********************** 
 
+mongoose.set('strictQuery', false);
+
 mongoose.connect('mongodb+srv://test:test-123@cluster0.gnhpjmb.mongodb.net/todolistDB', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connected to MongoDB');
