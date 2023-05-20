@@ -20,18 +20,14 @@ app.set("view engine", "ejs");
 
 //*********************** For Connect to the Server ********************** 
 
-mongoose.set('strictQuery', false);
+mongoose.connect('mongodb+srv://test:test-123@cluster0.gnhpjmb.mongodb.net/todolistDB', { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((error) => {
+    console.error('Error connecting to MongoDB', error);
+  });
 
-// Define the database URL to connect to.
-const url = "mongodb+srv://test:test-123@cluster0.gnhpjmb.mongodb.net/todolistDB";
-// const url = "mongodb://127.0.0.1/todolistDB";
-
-// Wait for database to connect, logging an error if there is a problem 
-main().catch(err => console.log(err));
-async function main() {
-  await mongoose.connect(url);
-  console.log("Successfully connected to the server");
-}
 
 const itemsSchema = {
     name: {
