@@ -4,6 +4,8 @@ const ejs = require("ejs");
 const mongoose = require("mongoose");
 const _ = require("lodash");
 const app = express();
+const dotenv = require("dotenv");
+dotenv.config();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -11,7 +13,7 @@ app.set("view engine", "ejs");
 
 mongoose.set('strictQuery', false);
 
-mongoose.connect('mongodb+srv://test:test-123@cluster0.gnhpjmb.mongodb.net/todolistDB', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO_CLOUD_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connected to MongoDB');
   })
