@@ -2,6 +2,7 @@ html {
   background-color: #0001028b;
   background-image: -webkit-linear-gradient(65deg, #020f100b 50%, #e1e2e9 50%);
   height: 100%;
+  width: 100%;
   font-family: 'helvetica neue';
 }
 
